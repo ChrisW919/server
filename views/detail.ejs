@@ -1,0 +1,46 @@
+<html>
+		<body>
+		<body>
+        <div class="jumbotron text-center">
+            <h1>Details of <%= criteria.name%></h1>
+        </div>
+        <div class="container-fluid">
+            <div class="well">
+            <div class="row">
+                
+            <p><img src=data:image/<%= criteria.photo_mimetype%>;base64,<%= criteria.photo %>></p><br>
+                
+            </div>
+            <div class="row">
+                    <p>Type: <%= criteria.type%></p><br>
+                    <p>Quantity: <%= criteria.quantity%></p><br>
+                    <p>Street: <%= criteria.inventory_address.street%></p><br>
+                    <p>Building: <%= criteria.inventory_address.building%></p><br>
+                    <p>Country: <%= criteria.inventory_address.country%></p><br>
+                    <p>Zipcode: <%= criteria.inventory_address.zipcode%></p><br>
+                    <p>GPS: [ <%= criteria.inventory_address.latitude%> , <%= criteria.inventory_address.longitude %>]</p><br>
+
+    
+                <p>Manager: <%= criteria.manager%></p><br>
+                
+                    <a href="/map?lat=<%= criteria.inventory_address.latitude%>&amp;lon=<%= criteria.inventory_address.longitude%>" class="btn btn-info" role="button">Map</a>
+                
+            </div>
+            </div>
+            <div class="row ml-md-auto">
+
+                <a href="/edit?_id=<%= criteria._id%>" class="btn btn-primary" role="button">Edit</a>
+                <a href="/delete?_id=<%= criteria._id%>"; owner=<%= criteria.manager%> class="btn btn-primary" role="button">Delete</a>
+                
+                <button class="btn btn-primary" onclick="goBack()">Back</button>
+            </div>
+            <br>            
+        </div>
+
+</body>
+	    <script>
+	    function goBack(){
+	    	location.replace("/");
+	    }
+	    </script>  
+</html>

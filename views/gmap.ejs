@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="">
+  	<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 80%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+	<div id="demo">
+	</div>
+    <div id="map"></div>
+    <script>
+         var mapOptions = {
+            center: [<%= lat %>,<%= lon%>],
+            zoom: <%= zoom%>
+         }
+         var map = new L.map('map', mapOptions);
+
+         var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+
+         map.addLayer(layer);
+
+         var marker = L.marker([<%= lat %>,<%= lon%>]);
+         
+         marker.addTo(map);
+      
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR-API-KEY&callback=initMap">
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<html>
+		<body>
+        <div class="jumbotron text-center">
+            <h1>updating Name: <%= item.name%></h1>
+        </div>
+
+        <div class="container-fluid text-left">
+            <form action="/edit" method="POST" enctype="multipart/form-data">
+            
+                <label for="name">Name*:</label>
+                <input type="text" id="name" name="name" value="<%= item.name%>" class="form-control" placeholder="Name" required/><br>
+                
+                <label for="inv_type">Type:</label>
+                <input type="text" id="inv_type" name="type" value="<%= item.type%>" class="form-control" placeholder="type of inventory"><br>
+
+                <label for="quantity">Quantity:</label>
+                <input type="text" id="quantity" name="quantity" value="<%= item.quantity%>" class="form-control" placeholder="quantity"><br>
+                
+                <label for="street">Street:</label>
+                <input type="text" id="street" name="street" value="<%= item.inventory_address.street%>" class="form-control" placeholder="Street"><br>
+                
+                <label for="building">Building:</label>
+                <input type="text" id="building" name="building" value="<%= item.inventory_address.building%>" class="form-control" placeholder="Building"><br>
+                
+                <label for="zipcode">Country:</label>
+                <input type="text" id="country" name="country" value="<%= item.inventory_address.country%>" class="form-control" placeholder="Zipcode"><br>
+
+                <label for="zipcode">Zipcode:</label>
+                <input type="text" id="zipcode" name="zipcode" value="<%= item.inventory_address.zipcode%>" class="form-control" placeholder="Zipcode"><br>
+
+                <label for="latitude">GPS Latitude:</label>
+                <input type="text" id="latitude" name="latitude" value="<%= item.inventory_address.latitude%>" class="form-control" placeholder="Latitude"><br>
+                
+                <label for="longitude">GPS Longitude:</label>
+                <input type="text" id="longitude" name="longitude" value="<%= item.inventory_address.longitude%>" class="form-control" placeholder="Longitude"><br>
+                
+                <input type="text" id="photo_mimetype" name="photo_mimetype" value="<%=item.photo_mimetype%>" hidden>
+                <input type="text" id="photo" name="photo" value="<%=item.photo%>" hidden>
+
+                <div class="custom-file">
+                    <label class="custom-file-label" for="photo">Photo:</label>
+                    <input type="file" id="photo" name="filetoupload" "="" class="form-control custom-file-input" placeholder="Please upload JPEG/PNG format"><br>
+                </div>
+
+                <input type="submit" value="edit">
+            </form>
+        </div>
+    
+    <script>
+        $(".custom-file-input").on("change", function() {
+          var fileName = $(this).val().split("\\").pop();
+        });
+    </script>
+
+</body>
+		</body>
+        <script>        
+
+        });</script>
